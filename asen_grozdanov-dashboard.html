@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asen Grozdanov — Executive Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0B0C10; --surface: #13151A; --surface2: #1C1F27;
+    --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
+    --gold: #C9A84C; --gold-light: #E8C97A;
+    --gold-dim: rgba(201,168,76,0.15); --gold-dim2: rgba(201,168,76,0.07);
+    --text: #F0EDE6; --muted: #8A8A8E; --muted2: #5C5C62;
+    --teal: #3ECFB2; --teal-dim: rgba(62,207,178,0.1);
+  }
+  html { background: var(--bg); }
+  body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); font-size:13px; line-height:1.5; -webkit-font-smoothing:antialiased; }
+  .page { max-width:1100px; margin:0 auto; padding:30px 30px 42px; display:grid; gap:16px; }
+
+  /* HEADER */
+  .header { display:grid; grid-template-columns:1fr auto; gap:22px; align-items:end; border-bottom:0.5px solid var(--border2); padding-bottom:18px; animation:fadeUp .5s ease both; }
+  .eyebrow { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.18em; color:var(--gold); text-transform:uppercase; margin-bottom:7px; }
+  .name { font-family:'Playfair Display',serif; font-size:38px; font-weight:700; letter-spacing:-.02em; color:var(--text); line-height:1.1; margin-bottom:7px; }
+  .tagline { font-size:12px; color:var(--muted); font-weight:300; line-height:1.7; }
+  .header-right { display:flex; flex-direction:column; align-items:flex-end; gap:5px; }
+  .ci { font-family:'DM Mono',monospace; font-size:9px; color:var(--muted); letter-spacing:.05em; }
+  .ci span { color:var(--gold-light); }
+  .badge { display:flex; align-items:center; gap:7px; background:var(--gold-dim); border:.5px solid var(--gold); border-radius:20px; padding:5px 13px; margin-top:5px; }
+  .badge .dot { width:6px; height:6px; border-radius:50%; background:var(--gold); animation:pulse 2s infinite; }
+  .badge span { font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:.1em; color:var(--gold-light); text-transform:uppercase; }
+
+  /* STATS */
+  .stats { display:grid; grid-template-columns:repeat(6,1fr); gap:9px; animation:fadeUp .5s .07s ease both; }
+  .stat { background:var(--surface); border:.5px solid var(--border); border-radius:10px; padding:12px 14px; position:relative; overflow:hidden; }
+  .stat::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--gold); opacity:.5; }
+  .stat-num { font-family:'Playfair Display',serif; font-size:23px; font-weight:600; color:var(--gold-light); line-height:1; margin-bottom:4px; }
+  .stat-lbl { font-size:9.5px; color:var(--muted); line-height:1.4; }
+
+  /* ═══ MANIFESTO ═══ */
+  .mani { position:relative; border-radius:14px; overflow:hidden; animation:fadeUp .5s .13s ease both; }
+  .mani-bg {
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 65% 130% at 4% 55%, rgba(201,168,76,.14) 0%, transparent 60%),
+      radial-gradient(ellipse 35% 70% at 96% 25%, rgba(201,168,76,.07) 0%, transparent 55%),
+      linear-gradient(135deg,#151209 0%,#0E0F13 55%,#0B0C10 100%);
+    z-index:0;
+  }
+  .mani-top-bar { position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--gold-light) 40%,rgba(201,168,76,.15) 100%); z-index:2; }
+  .mani-inner { position:relative; z-index:1; padding:28px 32px; border:.5px solid rgba(201,168,76,.28); border-radius:14px; display:grid; grid-template-columns:auto 1fr; gap:0 32px; }
+
+  .mani-side { display:flex; flex-direction:column; align-items:center; gap:10px; padding-right:24px; border-right:1px solid rgba(201,168,76,.18); min-width:40px; }
+  .mani-side-txt { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.22em; color:var(--gold); text-transform:uppercase; writing-mode:vertical-rl; transform:rotate(180deg); opacity:.8; }
+  .mani-side-line { flex:1; width:1px; background:linear-gradient(180deg,rgba(201,168,76,.28),transparent); }
+
+  .mani-label { font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:.2em; color:var(--gold); text-transform:uppercase; margin-bottom:12px; opacity:.9; }
+
+  .mani-headline { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; line-height:1.28; color:var(--text); margin-bottom:20px; max-width:760px; }
+  .mani-headline .gw { color:var(--gold-light); font-style:italic; }
+
+  /* Pillars */
+  .pillars { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:20px; }
+  .pillar { background:rgba(201,168,76,.055); border:.5px solid rgba(201,168,76,.17); border-radius:10px; padding:13px; }
+  .pillar-ico { font-size:17px; margin-bottom:7px; display:block; }
+  .pillar-t { font-size:11.5px; font-weight:500; color:var(--gold-light); margin-bottom:4px; line-height:1.3; }
+  .pillar-b { font-size:10.5px; color:var(--muted); line-height:1.6; }
+
+  /* Pull quote */
+  .quote-strip { border-top:.5px solid rgba(201,168,76,.18); padding-top:16px; display:grid; grid-template-columns:3px 1fr; gap:14px; align-items:start; }
+  .q-accent { width:3px; min-height:40px; background:var(--gold); border-radius:2px; }
+  .q-text { font-family:'Playfair Display',serif; font-size:14.5px; font-style:italic; color:var(--text); line-height:1.75; }
+  .q-text strong { font-style:normal; color:var(--gold-light); font-weight:600; }
+  .m-tags { display:flex; gap:7px; flex-wrap:wrap; margin-top:12px; }
+  .m-tag { font-family:'DM Mono',monospace; font-size:9px; padding:4px 11px; border-radius:20px; letter-spacing:.06em; border:.5px solid rgba(201,168,76,.3); color:var(--gold-light); background:var(--gold-dim); }
+
+  /* BODY GRID */
+  .body-grid { display:grid; grid-template-columns:1.15fr 1fr .9fr; gap:13px; animation:fadeUp .5s .19s ease both; }
+  .panel { background:var(--surface); border:.5px solid var(--border); border-radius:12px; padding:15px 17px; display:flex; flex-direction:column; gap:11px; }
+  .pt { font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted2); padding-bottom:8px; border-bottom:.5px solid var(--border); }
+  .bi { display:flex; gap:8px; align-items:flex-start; }
+  .bd { color:var(--gold); font-size:11px; margin-top:2px; flex-shrink:0; line-height:1.5; }
+  .bt { font-size:11px; color:var(--muted); line-height:1.6; }
+  .bt strong { color:var(--text); font-weight:500; }
+
+  .cert-list { display:flex; flex-direction:column; gap:6px; }
+  .cert-item { display:flex; align-items:center; gap:8px; padding:5px 0; border-bottom:.5px solid var(--border); }
+  .cert-item:last-child { border-bottom:none; }
+  .cert-ico { width:25px; height:25px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0; }
+  .cert-n { font-size:11px; color:var(--text); font-weight:500; }
+  .cert-s { font-size:9px; color:var(--muted); margin-top:1px; }
+  .lang-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; }
+  .lang-item { text-align:center; padding:5px 3px; }
+  .lang-n { font-size:10px; color:var(--text); font-weight:500; }
+  .lang-bar { height:2px; border-radius:2px; margin-top:4px; }
+  .lb-full { background:var(--gold); }
+  .lb-part { background:linear-gradient(90deg,var(--gold) 55%,var(--surface2) 55%); }
+
+  /* BOTTOM */
+  .bottom { display:grid; grid-template-columns:1fr 1fr 1fr; gap:13px; animation:fadeUp .5s .25s ease both; }
+  .engage-list { display:flex; flex-direction:column; gap:6px; }
+  .eng { display:flex; justify-content:space-between; align-items:center; padding:7px 10px; background:var(--surface2); border-radius:8px; border:.5px solid var(--border); }
+  .eng-n { font-size:11px; color:var(--text); font-weight:500; }
+  .eng-l { font-size:9px; color:var(--muted); margin-top:1px; }
+  .etag { font-family:'DM Mono',monospace; font-size:8px; padding:3px 8px; border-radius:20px; letter-spacing:.06em; white-space:nowrap; }
+  .tag-a { background:rgba(62,207,178,.12); color:var(--teal); border:.5px solid rgba(62,207,178,.3); }
+  .tag-r { background:var(--gold-dim); color:var(--gold-light); border:.5px solid rgba(201,168,76,.3); }
+  .exp-wrap { display:flex; flex-wrap:wrap; gap:6px; align-content:flex-start; }
+  .etx { font-size:10px; padding:3px 9px; border-radius:20px; border:.5px solid var(--border2); color:var(--muted); background:var(--surface2); }
+  .etx.hi { border-color:rgba(201,168,76,.4); color:var(--gold-light); background:var(--gold-dim); }
+
+  .edu-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+  .edu-deg { font-family:'DM Mono',monospace; font-size:8px; color:var(--gold); letter-spacing:.1em; text-transform:uppercase; margin-bottom:3px; }
+  .edu-f { font-size:11px; color:var(--text); font-weight:500; line-height:1.4; margin-bottom:2px; }
+  .edu-i { font-size:9.5px; color:var(--muted); }
+
+  .reminder { background:var(--gold-dim2); border:.5px solid rgba(201,168,76,.2); border-radius:9px; padding:11px 13px; margin-top:9px; }
+  .reminder-lbl { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.14em; color:var(--gold); text-transform:uppercase; margin-bottom:5px; }
+  .reminder-txt { font-size:10.5px; color:var(--muted); line-height:1.65; }
+  .reminder-txt span { color:var(--text); font-weight:500; }
+
+  /* FOOTER */
+  .footer { display:flex; justify-content:space-between; align-items:center; padding-top:13px; border-top:.5px solid var(--border); animation:fadeUp .5s .31s ease both; }
+  .foot-l { font-family:'DM Mono',monospace; font-size:8px; color:var(--muted2); letter-spacing:.1em; text-transform:uppercase; }
+  .foot-r { font-family:'DM Mono',monospace; font-size:8px; color:var(--muted2); letter-spacing:.07em; }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.35; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="eyebrow">Executive Profile · 2025 / 2026</div>
+      <div class="name">Asen Grozdanov</div>
+      <div class="tagline">Systems &amp; Infrastructure Engineer &nbsp;·&nbsp; University Professor &nbsp;·&nbsp; Author &nbsp;·&nbsp; Cybersecurity &amp; AI Curriculum Architect<br>Three careers. One irreplaceable profile. &nbsp; Active across Canada · Spain · Kazakhstan.</div>
+    </div>
+    <div class="header-right">
+      <div class="ci"><span>Email</span> &nbsp;agrozdanov@hotmail.com</div>
+      <div class="ci"><span>Tel</span> &nbsp;(514) 473-1128</div>
+      <div class="ci"><span>Location</span> &nbsp;Brossard, Québec, Canada</div>
+      <div class="ci"><span>LinkedIn</span> &nbsp;linkedin.com/in/asengrozdanov</div>
+      <div class="badge"><div class="dot"></div><span>10-Year Security Clearance · Google Cloud</span></div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><div class="stat-num">25K+</div><div class="stat-lbl">Teaching hours delivered</div></div>
+    <div class="stat"><div class="stat-num">10K+</div><div class="stat-lbl">Students worldwide</div></div>
+    <div class="stat"><div class="stat-num">80+</div><div class="stat-lbl">Unique topics developed</div></div>
+    <div class="stat"><div class="stat-num">13</div><div class="stat-lbl">Books authored</div></div>
+    <div class="stat"><div class="stat-num">15+</div><div class="stat-lbl">Colleges &amp; universities</div></div>
+    <div class="stat"><div class="stat-num">30+</div><div class="stat-lbl">Staff managed, 4 countries</div></div>
+  </div>
+
+  <!-- ═══════════ VITAL ASSET MANIFESTO ═══════════ -->
+  <div class="mani">
+    <div class="mani-bg"></div>
+    <div class="mani-top-bar"></div>
+    <div class="mani-inner">
+
+      <div class="mani-side">
+        <div class="mani-side-txt">Vital Asset · Strategic Value</div>
+        <div class="mani-side-line"></div>
+      </div>
+
+      <div>
+        <div class="mani-label">Why this hire is not a cost — it is a revenue shield</div>
+
+        <div class="mani-headline">
+          In the age of AI, parents and students are not paying for information.<br>
+          They are paying for <span class="gw">proven human expertise</span> that machines cannot replicate.
+        </div>
+
+        <div class="pillars">
+          <div class="pillar">
+            <span class="pillar-ico">🏛️</span>
+            <div class="pillar-t">Powerful Differentiator</div>
+            <div class="pillar-b">A faculty member with Google Cloud data center access and international industry leadership on campus — even occasionally — is a signal no competitor can manufacture.</div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-ico">📈</span>
+            <div class="pillar-t">Enrollment Engine</div>
+            <div class="pillar-b">My presence directly supports new student enrollment by making your 5–7× premium price tag self-evident and undeniable to prospective families at the exact moment of decision.</div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-ico">🛡️</span>
+            <div class="pillar-t">Revenue Protection</div>
+            <div class="pillar-b">In a market increasingly questioning the value of traditional degrees, industry-connected faculty insulates the institution against volatility, brand erosion, and AI-driven disruption.</div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-ico">🎯</span>
+            <div class="pillar-t">Marketing &amp; Retention Tool</div>
+            <div class="pillar-b">Higher retention, higher referrals, higher perceived value — all flowing directly from one credential-dense, Google-cleared, internationally proven profile on your faculty roster.</div>
+          </div>
+        </div>
+
+        <div class="quote-strip">
+          <div class="q-accent"></div>
+          <div>
+            <div class="q-text">
+              "Having a faculty member with my extensive international background, Google Cloud data center access, and real-world industry leadership on campus — even occasionally — serves as a <strong>powerful differentiator</strong>. In the age of AI, parents and students are looking for <strong>proven human expertise that machines cannot replicate</strong>. My presence signals that DMUC offers a level of industry-connected, high-stakes education that <strong>justifies the premium price tag</strong>. It is a <strong>marketing and retention tool</strong> that directly helps keep new student enrollment high and <strong>protects your revenue stream against market volatility.</strong>"
+            </div>
+            <div class="m-tags">
+              <span class="m-tag">Irreplaceable by AI</span>
+              <span class="m-tag">Justifies 5–7× Premium Tuition</span>
+              <span class="m-tag">Proven Human Expertise</span>
+              <span class="m-tag">Industry-Connected Education</span>
+              <span class="m-tag">Brand Equity Asset</span>
+              <span class="m-tag">Enrollment &amp; Retention Driver</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- ═══════════ END MANIFESTO ═══════════ -->
+
+  <!-- BODY PANELS -->
+  <div class="body-grid">
+    <div class="panel">
+      <div class="pt">Industry credentials</div>
+      <div class="bi"><div class="bd">◆</div><div class="bt"><strong>Google Cloud Canada — Infrastructure Engineer.</strong> 2 years inside Google data centers, owning clusters of thousands of servers &amp; networking devices with mission-critical security responsibility.</div></div>
+      <div class="bi"><div class="bd">◆</div><div class="bt"><strong>Top 1% globally.</strong> Fewer than 1% of Google's 190,000+ employees are ever granted physical data center access — requiring a 10-year clearance more rigorous than any standard criminal check.</div></div>
+      <div class="bi"><div class="bd">◆</div><div class="bt"><strong>15 years B2B international leadership</strong> — Coca-Cola, PepsiCo, Nestlé, Danone, Kraft Foods, DuPont &amp; ADM — across 7 countries in South-Eastern Europe.</div></div>
+      <div class="bi"><div class="bd">◆</div><div class="bt"><strong>Built a company from zero,</strong> managing 30+ staff across 4 countries from inception to full operational excellence and ISO 22000:2005 certification.</div></div>
+      <div class="bi"><div class="bd">◆</div><div class="bt"><strong>Custom ERP-CRM system</strong> designed and deployed from scratch — still in active use today within Bella Holding. In-house production unit launched from zero.</div></div>
+    </div>
+
+    <div class="panel">
+      <div class="pt">Academic impact</div>
+      <div class="bi"><div class="bd">◆</div><div class="bt"><strong>Full Cybersecurity Program</strong> built from scratch for Red Deer Polytechnics, Alberta. Key modules developed for Dawson College's brand-new 2025 program.</div></div>
+      <div class="bi"><div class="bd">◆</div><div class="bt"><strong>40+ content elements</strong> rebuilt across Computer Science, Digital Analytics &amp; MBA streams at Schiller International University, Madrid.</div></div>
+      <div class="bi"><div class="bd">◆</div><div class="bt"><strong>MBA, Master's &amp; Undergraduate</strong> instruction across universities in Spain and Kazakhstan, plus 15+ colleges in Québec, Ontario and Alberta.</div></div>
+      <div class="bi"><div class="bd">◆</div><div class="bt"><strong>100% remote for ~10 years</strong> using fully self-developed labs, exams, video lectures &amp; interactive content — all verifiable online.</div></div>
+      <div class="bi"><div class="bd">◆</div><div class="bt"><strong>13-book series authored:</strong> "Mastering IT Fundamentals: Your Gateway to Cybersecurity in the Era of AI" + "Infrastructure Wars: The Battle for AI Dominance."</div></div>
+    </div>
+
+    <div class="panel">
+      <div class="pt">Certifications &amp; partnerships</div>
+      <div class="cert-list">
+        <div class="cert-item"><div class="cert-ico" style="background:rgba(201,168,76,.12);">🔐</div><div><div class="cert-n">EC-Council Academy</div><div class="cert-s">Partner &amp; Instructor · CEH, CND, CHFI</div></div></div>
+        <div class="cert-item"><div class="cert-ico" style="background:rgba(91,156,246,.12);">🌐</div><div><div class="cert-n">Cisco IT Essentials</div><div class="cert-s">Administrator &amp; Instructor · Multiple colleges</div></div></div>
+        <div class="cert-item"><div class="cert-ico" style="background:rgba(62,207,178,.12);">🎓</div><div><div class="cert-n">Red Hat Academy</div><div class="cert-s">Partner, Admin &amp; Instructor · Alberta &amp; QC</div></div></div>
+        <div class="cert-item"><div class="cert-ico" style="background:rgba(232,97,122,.12);">☁️</div><div><div class="cert-n">AWS Educate</div><div class="cert-s">Cloud Faculty Ambassador</div></div></div>
+      </div>
+      <div class="pt" style="margin-top:4px;">Languages</div>
+      <div class="lang-grid">
+        <div class="lang-item"><div class="lang-n">English</div><div class="lang-bar lb-full"></div></div>
+        <div class="lang-item"><div class="lang-n">Russian</div><div class="lang-bar lb-full"></div></div>
+        <div class="lang-item"><div class="lang-n">Serbian</div><div class="lang-bar lb-full"></div></div>
+        <div class="lang-item"><div class="lang-n">Bulgarian</div><div class="lang-bar lb-full"></div></div>
+        <div class="lang-item"><div class="lang-n">French</div><div class="lang-bar lb-part"></div></div>
+        <div class="lang-item"><div class="lang-n">Spanish</div><div class="lang-bar lb-part"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM ROW -->
+  <div class="bottom">
+    <div class="panel" style="gap:8px;">
+      <div class="pt">Current active engagements</div>
+      <div class="engage-list">
+        <div class="eng"><div><div class="eng-n">Schiller International University</div><div class="eng-l">Madrid, Spain · MBA &amp; CS Programs</div></div><div class="etag tag-a">Active</div></div>
+        <div class="eng"><div><div class="eng-n">SITE Geneva</div><div class="eng-l">Astana, Kazakhstan · Data Science &amp; ML</div></div><div class="etag tag-a">Active</div></div>
+        <div class="eng"><div><div class="eng-n">Red Deer Polytechnic</div><div class="eng-l">Alberta · Cybersecurity Program</div></div><div class="etag tag-a">Active</div></div>
+        <div class="eng"><div><div class="eng-n">John Abbott College</div><div class="eng-l">Montréal, QC · ACS Cybersecurity</div></div><div class="etag tag-a">Active</div></div>
+        <div class="eng"><div><div class="eng-n">Dawson College</div><div class="eng-l">Montréal, QC · Cybersecurity Modules</div></div><div class="etag tag-r">2025</div></div>
+        <div class="eng"><div><div class="eng-n">Google Cloud Canada</div><div class="eng-l">Canada · Infrastructure Engineer</div></div><div class="etag tag-r">2023–25</div></div>
+      </div>
+    </div>
+
+    <div class="panel" style="gap:8px;">
+      <div class="pt">Core expertise</div>
+      <div class="exp-wrap">
+        <span class="etx hi">Cybersecurity &amp; AI</span>
+        <span class="etx hi">Google Cloud Infrastructure</span>
+        <span class="etx hi">Curriculum Architecture</span>
+        <span class="etx hi">AI Threat Landscape</span>
+        <span class="etx">DevOps</span>
+        <span class="etx">Network Engineering</span>
+        <span class="etx">Linux &amp; MS Servers</span>
+        <span class="etx">Python &amp; Data Science</span>
+        <span class="etx">EC-Council CEH / CND</span>
+        <span class="etx">Pen Testing</span>
+        <span class="etx">Cloud: Azure · GCP · AWS</span>
+        <span class="etx">International B2B</span>
+        <span class="etx">ERP Systems</span>
+        <span class="etx">ISO 22000</span>
+        <span class="etx">Virtualization</span>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div class="panel" style="gap:8px; flex:1;">
+        <div class="pt">Education</div>
+        <div class="edu-grid">
+          <div><div class="edu-deg">M.Sc.</div><div class="edu-f">Food Science &amp; Engineering</div><div class="edu-i">UFT, Plovdiv, Bulgaria</div></div>
+          <div><div class="edu-deg">M.Ed.</div><div class="edu-f">Teaching Technical Subjects</div><div class="edu-i">Plovdiv State University</div></div>
+          <div><div class="edu-deg">ACS/AEC</div><div class="edu-f">Cybersecurity</div><div class="edu-i">Champlain College, Montréal</div></div>
+          <div><div class="edu-deg">ACS/AEC</div><div class="edu-f">Network Administration</div><div class="edu-i">Dawson College, Montréal</div></div>
+        </div>
+      </div>
+      <div class="reminder">
+        <div class="reminder-lbl">Note</div>
+        <div class="reminder-txt">All teaching materials, labs, exams &amp; video lectures are <span>available and verifiable online</span>. Not a claim — an auditable, decade-long body of work.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="foot-l">Confidential · Executive Profile 2025/2026 · Asen Grozdanov</div>
+    <div class="foot-r">agrozdanov@hotmail.com &nbsp;·&nbsp; (514) 473-1128 &nbsp;·&nbsp; linkedin.com/in/asengrozdanov</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+Professional Profile
+Non- Credited
+
+Educator :
+
+<ul>
+{% for file in site.static_files %}
+{% comment %} Check for both PDF and HTML files {% endcomment %}
+{% if file.extname == ".pdf" or file.extname == ".html" or file.extname == ".md" %}
+<li><a href="{{ file.path | relative_url }}">{{ file.basename }}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
